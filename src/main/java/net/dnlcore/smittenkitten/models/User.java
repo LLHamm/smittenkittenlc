@@ -135,15 +135,17 @@ public class User {
         }
     }
 
-    public boolean verifyPassword(String pwdAttempt) {
-        try {
-            if (Hash.password(pwdAttempt.toCharArray()).verify(storedPassword)) return true;
-        }
-        catch (InvalidHashException e)
-        {
-            //this means false
+	public boolean verifyPassword(String pwdAttempt) {
+		if (pwdAttempt != null && pwdAttempt != "") {
+            try {
+                if (Hash.password(pwdAttempt.toCharArray()).verify(storedPassword)) return true;
+            } catch (InvalidHashException e) {
+                //this means false
+            }
         }
         return false;
+    }	
+    
     }
 
     private String getHashedPassword(String pwd) {
