@@ -25,10 +25,10 @@ public class User {
     @GeneratedValue
     private int id;
     @NotNull
-    @Email(message="This don't work")
+    @Email(message="This doesn't work")
     private String email;
     @NotNull
-    @Positive(message = "You need to be older than 0.")
+    @Positive(message = "Please enter an age greater than zero.")
     private int age;
     @NotNull
     private Gender gender;
@@ -145,8 +145,6 @@ public class User {
         }
         return false;
     }	
-    
-    }
 
     private String getHashedPassword(String pwd) {
         char[] pwdArray = pwd.toCharArray();

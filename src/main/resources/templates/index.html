@@ -6,21 +6,25 @@
 <table class="table">
 
     <tr>
+        <th>ID</th>
         <th>Name</th>
         <th>Gender</th>
         <th>Location</th>
         <th>Age</th>
         <th>Environment</th>
         <th>Likes</th>
+        <th>Dislikes</th>
     </tr>
 
     <tr th:each="user : ${users}">
+        <td> <a th:href="'/user/view/' + ${user.id}" th:text="${user.id}" ></a></td>
         <td> <a th:href="'/user/view/' + ${user.id}" th:text="${user.name}" ></a></td>
         <td th:text="${user.gender}"></td>
         <td th:text="${user.location}"></td>
         <td th:text="${user.age}"></td>
         <td th:text="${user.environment}"></td>
         <td th:text="${user.likes}"></td>
+        <td th:text="${user.dislikes}"></td>
     </tr>
 
 </table>
